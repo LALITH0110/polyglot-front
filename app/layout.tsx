@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { GeistSans } from 'geist/font/sans'
 import { GeistMono } from 'geist/font/mono'
+import Script from 'next/script'
 import './globals.css'
 import { Toaster } from 'sonner'
 import { Analytics } from '@vercel/analytics/next'
@@ -24,17 +25,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-M6CR35K4VZ"></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-M6CR35K4VZ');
-            `,
-          }}
-        />
         <style>{`
 html {
   font-family: ${GeistSans.style.fontFamily};
@@ -44,6 +34,18 @@ html {
         `}</style>
       </head>
       <body>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-M6CR35K4VZ"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-M6CR35K4VZ');
+          `}
+        </Script>
         {children}
         <Toaster />
         <Analytics />
