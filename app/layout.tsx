@@ -9,6 +9,11 @@ export const metadata: Metadata = {
   title: 'Polyglot File Generator',
   description: 'Create files that are valid in multiple formats simultaneously',
   generator: 'Polyglot Generator',
+  icons: {
+    icon: '/favicon.webp',
+    shortcut: '/favicon.webp',
+    apple: '/favicon.webp',
+  },
 }
 
 export default function RootLayout({
