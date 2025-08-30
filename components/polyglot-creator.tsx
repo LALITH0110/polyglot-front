@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { Upload, Download, CheckCircle, FileText, FileImage, Archive, Video, Music, AlertTriangle } from 'lucide-react'
 import FileUploadCard from "@/components/file-upload-card"
+import { incrementPolyglotCounter } from "@/lib/firebase"
 
 // Conservative file size limits (in bytes)
 const FILE_SIZE_LIMITS = {
@@ -154,6 +155,15 @@ export default function PolyglotCreator({ config, type }: PolyglotCreatorProps) 
         if (filenameMatch) {
           setDownloadFilename(filenameMatch[1])
         }
+      }
+
+      // Increment the global counter after successful generation
+      try {
+        await incrementPolyglotCounter()
+        console.log(`Global counter incremented for successful ${type} polyglot generation`)
+      } catch (counterError) {
+        console.error("Error incrementing counter:", counterError)
+        // Don't fail the generation process if counter fails
       }
     } catch (error) {
       console.error("Error generating polyglot:", error)
