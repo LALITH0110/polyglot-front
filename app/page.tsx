@@ -1,7 +1,10 @@
+"use client"
+
 import Link from "next/link"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { FileImage, Archive, FileText, Video, Music, Volume2 } from 'lucide-react'
+import { incrementPolyglotCounter } from "@/lib/firebase"
 
 const polyglotTypes = [
   {
@@ -85,6 +88,15 @@ const polyglotTypes = [
 ]
 
 export default function HomePage() {
+  const handleGetStartedClick = async (polyglotType: string) => {
+    try {
+      await incrementPolyglotCounter();
+      console.log(`Counter incremented for ${polyglotType}`);
+    } catch (error) {
+      console.error("Error incrementing counter:", error);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
       {/* Header */}
@@ -124,6 +136,7 @@ export default function HomePage() {
                     <Button
                       className={`w-full bg-gradient-to-r ${type.gradient} hover:opacity-90 text-white font-semibold py-3 text-lg group-hover:scale-105 transition-transform duration-300`}
                       size="lg"
+                      onClick={() => handleGetStartedClick(type.title)}
                     >
                       Get Started
                     </Button>
