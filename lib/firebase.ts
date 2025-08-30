@@ -4,13 +4,13 @@ import { getFirestore, doc, updateDoc, increment, getDoc, setDoc } from "firebas
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAWvn4C3wM4rjZIwyd5yytMS37uGlC_1jk",
-  authDomain: "glotfile.firebaseapp.com",
-  projectId: "glotfile",
-  storageBucket: "glotfile.firebasestorage.app",
-  messagingSenderId: "368552540536",
-  appId: "1:368552540536:web:76203048215286d3f8708d",
-  measurementId: "G-1FLFFCR797"
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
+  measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID
 };
 
 // Initialize Firebase
