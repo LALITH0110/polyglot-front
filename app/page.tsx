@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { FileImage, Archive, FileText, Video, Music, Volume2 } from 'lucide-react'
+import { FileImage, Archive, FileText, Video, Music, Volume2, Github, ExternalLink, Mail } from 'lucide-react'
 
 const polyglotTypes = [
   {
@@ -162,6 +162,52 @@ export default function HomePage() {
           </div>
         </div>
       </main>
+
+      {/* Footer */}
+      <footer className="bg-white border-t border-gray-200 mt-3">
+        <div className="container mx-auto px-4 py-6">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-600">
+            <div className="flex items-center gap-2">
+              <span>© {new Date().getFullYear()} Made by</span>
+              <Link
+                href="https://lalithkothuru.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-600 hover:text-blue-800 font-semibold flex items-center gap-1 transition-colors"
+              >
+                Lalith Kothuru
+                <ExternalLink className="w-3 h-3" />
+              </Link>
+            </div>
+            <div className="flex items-center gap-4">
+              <Link
+                href="https://github.com/LALITH0110"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1 text-gray-600 hover:text-gray-900 transition-colors"
+              >
+                <Github className="w-4 h-4" />
+                GitHub
+              </Link>
+              <span className="text-gray-400">|</span>
+              <Link
+                href="mailto:lalith.kothuru@gmail.com?subject=[GlotFiles]%20"
+                className="flex items-center gap-1 text-gray-600 hover:text-gray-900 transition-colors"
+              >
+                <Mail className="w-4 h-4" />
+                Contact Me
+              </Link>
+              <span className="text-gray-400">|</span>
+              <Link href="#" className="hover:text-gray-900 transition-colors">
+                Privacy
+              </Link>
+              <Link href="#" className="hover:text-gray-900 transition-colors">
+                Terms
+              </Link>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   )
 }
