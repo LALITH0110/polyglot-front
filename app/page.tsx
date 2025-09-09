@@ -170,7 +170,7 @@ export default function HomePage() {
             <div className="flex items-center gap-2">
               <span>© {new Date().getFullYear()} Made by</span>
               <Link
-                href="https://lalithkothuru.com"
+                href="https://www.lalithkothuru.com/?utm_source=glotfiles-website&utm_medium=referral&utm_campaign=glotfiles-project"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-600 hover:text-blue-800 font-semibold flex items-center gap-1 transition-colors"
