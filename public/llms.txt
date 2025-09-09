@@ -8,7 +8,7 @@ Disallow: /private
 Policy: training-ok
 Usage: non-commercial, attribution-preferred
 Contact: lalith.kothuru@gmail.com
-Sitemap: https://glotfiles.com/sitemap.xml
+Sitemap: https://glotfiles.dev/sitemap.xml
 Last-Modified: 2025-08-29
 
 # Notes:

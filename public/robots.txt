@@ -7,7 +7,7 @@ Disallow: /api/private
 Crawl-delay: 1
 
 # Sitemap location
-Sitemap: https://glotfiles.com/sitemap.xml
+Sitemap: https://glotfiles.dev/sitemap.xml
 
 # Notes for crawlers:
 # Polyglot file generator - only online platform for multi-format files
