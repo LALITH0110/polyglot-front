@@ -198,11 +198,8 @@ export default function HomePage() {
                 Contact Me
               </Link>
               <span className="text-gray-400">|</span>
-              <Link href="#" className="hover:text-gray-900 transition-colors">
-                Privacy
-              </Link>
-              <Link href="#" className="hover:text-gray-900 transition-colors">
-                Terms
+              <Link href="/privacy-terms" className="hover:text-gray-900 transition-colors">
+                Privacy & Terms
               </Link>
             </div>
           </div>
