@@ -81,7 +81,7 @@ const polyglotConfigs = {
     file2: { label: "Video File", accept: ".mp4,.mov,.avi", type: "Video" },
     file3: { label: "PDF File", accept: ".pdf", type: "PDF" },
   },
-  "html-pdf": {
+  "pdf-html": {
     title: "HTML + PDF Polyglot",
     description: "Combine a PDF document with an HTML file",
     file1: { label: "PDF File", accept: ".pdf", type: "PDF" },
@@ -125,7 +125,7 @@ export default async function CreatePage({ params }: PageProps) {
       {/* Main Content */}
       <main className="container mx-auto px-4 py-12">
         {/* Coming Soon UI - uncomment when needed
-        {type === "html-pdf" ? (
+        {type === "pdf-html" ? (
           <Card className="max-w-2xl mx-auto border-0 shadow-lg">
             <CardContent className="text-center py-16">
               <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-r from-fuchsia-500 to-pink-600 flex items-center justify-center">

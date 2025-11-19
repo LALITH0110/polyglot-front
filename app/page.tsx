@@ -75,7 +75,7 @@ const polyglotTypes = [
     gradient: "from-rose-500 to-orange-600",
   },
   {
-    id: "html-pdf",
+    id: "pdf-html",
     title: "HTML + PDF",
     description: "Combine HTML files with PDF documents",
     icon: FileText,
