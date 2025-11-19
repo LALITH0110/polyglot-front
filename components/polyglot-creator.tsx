@@ -78,6 +78,7 @@ export default function PolyglotCreator({ config, type }: PolyglotCreatorProps) 
   const [downloadFilename, setDownloadFilename] = useState<string>("")
   const [errorMessage, setErrorMessage] = useState<string>("")
   const [showWarningModal, setShowWarningModal] = useState(false)
+  const [showLongWaitMessage, setShowLongWaitMessage] = useState(false)
 
   // Wrapper functions for file selection with validation
   const handleFileSelect = (
@@ -108,6 +109,12 @@ export default function PolyglotCreator({ config, type }: PolyglotCreatorProps) 
 
     setIsGenerating(true)
     setErrorMessage("") // Clear any existing errors
+    setShowLongWaitMessage(false)
+
+    // Show message after 5 seconds if still generating
+    const longWaitTimer = setTimeout(() => {
+      setShowLongWaitMessage(true)
+    }, 5000)
 
     try {
       const formData = new FormData()
@@ -180,7 +187,9 @@ export default function PolyglotCreator({ config, type }: PolyglotCreatorProps) 
         setErrorMessage("Failed to generate polyglot file. Please try again.")
       }
     } finally {
+      clearTimeout(longWaitTimer)
       setIsGenerating(false)
+      setShowLongWaitMessage(false)
     }
   }
 
@@ -282,6 +291,13 @@ export default function PolyglotCreator({ config, type }: PolyglotCreatorProps) 
             <div className="flex items-center justify-center gap-2 p-4 bg-red-50 border border-red-200 rounded-lg text-red-700">
               <AlertTriangle className="w-5 h-5" />
               <span className="text-sm font-medium">{errorMessage}</span>
+            </div>
+          )}
+
+          {/* Long Wait Info Message */}
+          {showLongWaitMessage && isGenerating && (
+            <div className="flex items-center justify-center gap-2 p-4 bg-blue-50 border border-blue-200 rounded-lg text-blue-700">
+              <span className="text-sm font-medium">Hang tight! This usually takes 1-2 minutes. We're crafting your polyglot file with care.</span>
             </div>
           )}
           
