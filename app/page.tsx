@@ -74,6 +74,13 @@ const polyglotTypes = [
     icon: FileImage,
     gradient: "from-rose-500 to-orange-600",
   },
+  {
+    id: "html-pdf",
+    title: "HTML + PDF",
+    description: "Combine HTML files with PDF documents",
+    icon: FileText,
+    gradient: "from-fuchsia-500 to-pink-600",
+  },
   // Commented out for now - advanced feature not implemented in web interface yet
   // {
   //   id: "pdf-image-video-zip-html",

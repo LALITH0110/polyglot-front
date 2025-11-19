@@ -1,7 +1,8 @@
 import { notFound } from "next/navigation"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { ArrowLeft } from 'lucide-react'
+import { Card, CardContent } from "@/components/ui/card"
+import { ArrowLeft, Clock } from 'lucide-react'
 import PolyglotCreator from "@/components/polyglot-creator"
 
 const polyglotConfigs = {
@@ -80,6 +81,12 @@ const polyglotConfigs = {
     file2: { label: "Video File", accept: ".mp4,.mov,.avi", type: "Video" },
     file3: { label: "PDF File", accept: ".pdf", type: "PDF" },
   },
+  "html-pdf": {
+    title: "HTML + PDF Polyglot",
+    description: "Combine an HTML file with a PDF document",
+    file1: { label: "HTML File", accept: ".html,.htm", type: "HTML" },
+    file2: { label: "PDF File", accept: ".pdf", type: "PDF" },
+  },
 }
 
 interface PageProps {
@@ -117,7 +124,26 @@ export default async function CreatePage({ params }: PageProps) {
 
       {/* Main Content */}
       <main className="container mx-auto px-4 py-12">
-        <PolyglotCreator config={config} type={type} />
+        {type === "html-pdf" ? (
+          <Card className="max-w-2xl mx-auto border-0 shadow-lg">
+            <CardContent className="text-center py-16">
+              <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-r from-fuchsia-500 to-pink-600 flex items-center justify-center">
+                <Clock className="w-10 h-10 text-white" />
+              </div>
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">Coming Soon</h2>
+              <p className="text-lg text-gray-600 mb-8">
+                We're working on bringing you HTML + PDF polyglot support. Stay tuned!
+              </p>
+              <Link href="/">
+                <Button variant="outline" size="lg">
+                  Back to Home
+                </Button>
+              </Link>
+            </CardContent>
+          </Card>
+        ) : (
+          <PolyglotCreator config={config} type={type} />
+        )}
       </main>
     </div>
   )
