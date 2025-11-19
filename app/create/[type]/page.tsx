@@ -83,9 +83,9 @@ const polyglotConfigs = {
   },
   "html-pdf": {
     title: "HTML + PDF Polyglot",
-    description: "Combine an HTML file with a PDF document",
-    file1: { label: "HTML File", accept: ".html,.htm", type: "HTML" },
-    file2: { label: "PDF File", accept: ".pdf", type: "PDF" },
+    description: "Combine a PDF document with an HTML file",
+    file1: { label: "PDF File", accept: ".pdf", type: "PDF" },
+    file2: { label: "HTML File", accept: ".html,.htm", type: "HTML" },
   },
 }
 
@@ -124,6 +124,7 @@ export default async function CreatePage({ params }: PageProps) {
 
       {/* Main Content */}
       <main className="container mx-auto px-4 py-12">
+        {/* Coming Soon UI - uncomment when needed
         {type === "html-pdf" ? (
           <Card className="max-w-2xl mx-auto border-0 shadow-lg">
             <CardContent className="text-center py-16">
@@ -144,6 +145,8 @@ export default async function CreatePage({ params }: PageProps) {
         ) : (
           <PolyglotCreator config={config} type={type} />
         )}
+        */}
+        <PolyglotCreator config={config} type={type} />
       </main>
     </div>
   )
